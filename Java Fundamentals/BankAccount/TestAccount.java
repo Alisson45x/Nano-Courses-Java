@@ -6,7 +6,7 @@ public class TestAccount {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Client information
+        // Client parameter
         Client alisson = new Client("Alisson", 17);
         Account alissonAccount = new Account(45, 0, alisson);
         alissonAccount.status();

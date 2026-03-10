@@ -2,34 +2,39 @@ package BankAccount;
 
 public class Account {
 
-    // information
+    // Information
     int bankNumber;
     double balance;
     Client client;
 
+    // Pattern Constructor
     public Account() {
     }
 
+    // Class Constructor
     public Account(int bankNumber, double balance, Client client) {
         this.bankNumber = bankNumber;
-        this.balance = 0;
+        this.balance = balance;
         this.client = client;
 
     }
-    // deposit
 
+    // Deposit method
     public void deposit(double amount) {
         this.balance += amount;
     }
 
+    // Deposit method overcharge
     public void deposit(double amount, String description) {
         this.balance += amount;
         System.out.println(description + ": " + amount);
 
     }
 
-    // withdraw check
+    // Withdraw method
     public void withdraw(double amount) {
+
+        // Funds check
         if (amount <= balance) {
             this.balance -= amount;
         } else {

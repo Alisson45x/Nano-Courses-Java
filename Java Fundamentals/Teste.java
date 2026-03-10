@@ -1,6 +1,16 @@
 
 public class Teste {
-    public static void main(String[] args) {
-    
+     // Information
+    String name;
+    int age;
+
+    // Pattern Constructor
+    public Teste() {
     }
+
+    public Teste(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
 }

@@ -1,16 +1,28 @@
 package BankAccount;
 
+/**
+ * Represents a bank client with personal information.
+ */
 public class Client {
 
-    // Information
+    /** The full name of the client. */
     String name;
+
+    /** The age of the client. */
     int age;
 
-    // Pattern Constructor
+    /**
+     * Default constructor. Creates an empty client.
+     */
     public Client() {
     }
 
-    // Class Constructor
+    /**
+     * Creates a client with the given information.
+     *
+     * @param name the full name of the client
+     * @param age  the age of the client
+     */
     public Client(String name, int age) {
         this.name = name;
         this.age = age;

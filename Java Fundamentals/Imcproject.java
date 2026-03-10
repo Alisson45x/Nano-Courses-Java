@@ -60,5 +60,7 @@ public class Imcproject {
             energy -= 5;
         }
             System.out.println("Your energy: " + energy);
+            
+        sc.close();
     }
 }

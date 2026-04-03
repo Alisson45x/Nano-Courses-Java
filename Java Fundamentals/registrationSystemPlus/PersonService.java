@@ -40,7 +40,6 @@ public class PersonService {
         for (Person person : tallestPeople) {
             person.data();
         }
-        System.out.println("-".repeat(40));
     }
 
     public void lessThan18(ArrayList<Person> people, ArrayList<Person> lessThan18People) {
@@ -71,7 +70,7 @@ public class PersonService {
     }
 
     public void upper(ArrayList<Person> people) {
-        System.out.println("-".repeat(40) + "\nName upper case: ");
+        System.out.println("\n" + "-".repeat(40) + "\nName upper case: ");
         for (Person person : people) {
             System.out.println("Name: " + person.getName().toUpperCase());
         }

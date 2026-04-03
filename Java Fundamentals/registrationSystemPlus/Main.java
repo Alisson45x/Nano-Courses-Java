@@ -40,9 +40,10 @@ public class Main {
 
         service.avarageHeight(people);
         
-        service.upper(lessThan18People);
+        service.upper(people);
 
-        
+        service.reverse(people);
+
         sc.close();
     }
 }

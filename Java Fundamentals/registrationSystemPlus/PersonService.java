@@ -4,93 +4,82 @@ import java.util.ArrayList;
 
 public class PersonService {
 
-    public void olderCalculation(ArrayList<Person> people, ArrayList<Person> olderPeople) {
+    public ArrayList<Person> getOldestPeople(ArrayList<Person> people) {
+        ArrayList<Person> result = new ArrayList<>();
         int max = 0;
-        for (Person person : people) {
-            if (person.getAge() > max) {
-                max = person.getAge();
-                olderPeople.clear();
-                olderPeople.add(person);
 
-            } else if (person.getAge() == max) {
-                olderPeople.add(person);
+        for (Person p : people) {
+            if (p.getAge() > max) {
+                max = p.getAge();
+                result.clear();
+                result.add(p);
+            } else if (p.getAge() == max) {
+                result.add(p);
             }
         }
-
-        System.out.println("-".repeat(40) + "\nThe oldest people: ");
-        for (Person person : olderPeople) {
-            person.data();
-        }
-
+        return result;
     }
 
-    public void heightCalculation(ArrayList<Person> people, ArrayList<Person> tallestPeople) {
-        Double maxHigh = 0.0;
-        for (Person person : people) {
-            if (person.getHeight() > maxHigh) {
-                maxHigh = person.getHeight();
-                tallestPeople.clear();
-                tallestPeople.add(person);
+    public ArrayList<Person> getTallestPeople(ArrayList<Person> people) {
+        ArrayList<Person> result = new ArrayList<>();
+        double max = 0;
 
-            } else if (person.getHeight() == maxHigh) {
-                tallestPeople.add(person);
+        for (Person p : people) {
+            if (p.getHeight() > max) {
+                max = p.getHeight();
+                result.clear();
+                result.add(p);
+            } else if (p.getHeight() == max) {
+                result.add(p);
             }
         }
-        System.out.println("-".repeat(40) + "\nThe tallest people: ");
-        for (Person person : tallestPeople) {
-            person.data();
-        }
+        return result;
     }
 
-    public void lessThan18(ArrayList<Person> people, ArrayList<Person> lessThan18People) {
-        for (Person person : people) {
-            if (person.getAge() < 18) {
-                lessThan18People.add(person);
+    public ArrayList<Person> getUnder18(ArrayList<Person> people) {
+        ArrayList<Person> result = new ArrayList<>();
+
+        for (Person p : people) {
+            if (p.getAge() < 18) {
+                result.add(p);
             }
         }
-        if (lessThan18People.size() > 0) {
-            System.out.println("-".repeat(40) + "\nPeople that have less than 18:");
-            for (Person person : lessThan18People) {
-                person.data();
+        return result;
+    }
+
+    public double getAverageHeight(ArrayList<Person> people) {
+        double sum = 0;
+
+        for (Person p : people) {
+            sum += p.getHeight();
+        }
+
+        return sum / people.size();
+    }
+
+    public ArrayList<String> getUpperNames(ArrayList<Person> people) {
+        ArrayList<String> result = new ArrayList<>();
+
+        for (Person p : people) {
+            result.add(p.getName().toUpperCase());
+        }
+        return result;
+    }
+
+    public ArrayList<String> getReversedNames(ArrayList<Person> people) {
+        ArrayList<String> result = new ArrayList<>();
+
+        for (Person p : people) {
+            String name = p.getName();
+            String reversed = "";
+
+            for (int i = name.length() - 1; i >= 0; i--) {
+                reversed += name.charAt(i);
             }
-        } else
-            System.out.println("-".repeat(40));
-        System.out.println("Don't have people less than 18 yers old.");
-    }
 
-    public void avarageHeight(ArrayList<Person> people) {
-        Double avarageHeight = 0.0;
-        int division = 0;
-        for (Person person : people) {
-            avarageHeight += person.getHeight();
-            division++;
-        }
-        System.out.printf("-".repeat(40) + "\nThe average height is: %.2f",
-                (avarageHeight / division));
-    }
-
-    public void upper(ArrayList<Person> people) {
-        System.out.println("\n" + "-".repeat(40) + "\nName upper case: ");
-        for (Person person : people) {
-            System.out.println("Name: " + person.getName().toUpperCase());
-        }
-    }
-
-   public void reverse(ArrayList<Person> people){
-    System.out.println("-".repeat(40) + "\nReversed name: ");
-
-    for (Person person : people) {
-        System.out.print("Name: ");
-
-        String name = person.getName();
-
-        for (int i = name.length() - 1; i >= 0; i--) {
-            System.out.print(name.charAt(i));
+            result.add(reversed);
         }
 
-        System.out.println(); // quebra de linha
+        return result;
     }
-
-    System.out.println("-".repeat(40));
-}
 }

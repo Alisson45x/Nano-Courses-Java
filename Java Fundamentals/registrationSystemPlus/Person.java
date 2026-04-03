@@ -5,8 +5,12 @@ public class Person {
     private int age;
     private double height;
 
-    public Person() {
+    public Person() {}
 
+    public Person(String name, int age, double height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
     }
 
     public String getName() {
@@ -33,12 +37,8 @@ public class Person {
         this.height = height;
     }
 
-    public void data() {
-        System.out.print("Name: " + name + " | ");
-        System.out.print("Age: " + age + " | ");
-        System.out.print("Height: " + height + "\n");
+    @Override
+    public String toString() {
+        return "Name: " + name + " | Age: " + age + " | Height: " + height;
     }
-
-   
-    
 }
